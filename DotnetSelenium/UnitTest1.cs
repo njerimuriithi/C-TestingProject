@@ -1,6 +1,7 @@
 using OpenQA.Selenium;
 using OpenQA.Selenium.BiDi;
 using OpenQA.Selenium.Chrome;
+using OpenQA.Selenium.Support.UI;
 
 namespace DotnetSelenium
 {
@@ -23,6 +24,18 @@ namespace DotnetSelenium
 
 
             
+        }
+        [Test]
+        public void EaWebsiteTest()
+        {
+            IWebDriver driver = new ChromeDriver();
+            driver.Navigate().GoToUrl("http://eaapp.somee.com/");
+           driver.FindElement(By.LinkText("Login")).Click();
+            driver.FindElement(By.Name("UserName")).SendKeys("Admin");
+            driver.FindElement(By.Name("Password")).SendKeys("password");
+            driver.FindElement(By.ClassName("btn")).Submit();
+          
+        
         }
     }
 }
